@@ -26,6 +26,7 @@ app.all('*', function(req,res,next) {
 var {changeUserInfo, changeRemark} = require('./api/accountSetting');
 var { loginByUserName, getUserInfo,logout } = require('./api/login');
 var { initial,createQuesObj, getQuesDetails, editQues, deleteQues} = require('./api/testEntry');
+var { autoInitial,autoCreate } = require('./api/automaticTest');
 
 //登录，获取用户信息
 app.post('/api/login',function(req,res) { loginByUserName(req,res); })
@@ -43,3 +44,6 @@ app.post('/api/testEntry/getQuesDetails',function(req,res) { getQuesDetails(req,
 app.post('/api/testEntry/editQues', function(req,res) { editQues(req,res); });
 app.post('/api/testEntry/deleteQues',function(req,res) { deleteQues(req,res); })
 
+// testPaper/automaticTest/api/autoCreate
+app.get('/api/automaticTest/autoInitial', function(req,res) { autoInitial(req,res); });
+app.post('/api/automaticTest/autoCreate', function(req,res) { autoCreate(req,res); });

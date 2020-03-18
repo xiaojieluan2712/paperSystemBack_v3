@@ -14,7 +14,7 @@ module.exports = {
       var sqls = [
         'select * from subjects',
         'select * from questypes',
-        'select typeName,labelColor,subAbbr,quesId,question from question,subjects,questypes where question.subjectId = subjects.subjectId && question.typeId = questypes.typeId && userId='+ userId
+        'select typeName,labelColor,subAbbr,quesId,question,date from question,subjects,questypes where question.subjectId = subjects.subjectId && question.typeId = questypes.typeId && userId='+ userId+' order by date desc'
       ]
       var resData = {};
       var resDataKey = ['subjectsList','quesTypes','quesArray'];
